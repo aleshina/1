@@ -7,6 +7,19 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+void letThereBeApple(int* appleX, int* appleY, int *appleEaten) {
+  /* новое случайное расположение яблока, если яблоко съедено, а если нет, то печатает яблоко в
+     предыдущее местоположение */
+  if (*appleEaten) {
+    srand(time(0)); //использовать текущее время для случайного генератора
+    *appleX = (rand() % MAXWIDTH)+1;
+    *appleY = (rand() % MAXHEIGHT)+1;
+    *appleEaten = 0;
+  }
+
+  mvprintw(*appleY, *appleX,"A");
+}
+
 void eatApple(int *snakeArray, int appleX, int appleY,
               int *appleEaten, int *snakeLength) {  
 /*Если змея находит яблоко, получите одно очко, также установите appleEaten в true и
