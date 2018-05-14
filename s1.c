@@ -7,6 +7,23 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+  /*Если змея находит яблоко, получите одно очко, также установите appleEaten в true и
+печатает данные snakeLength и отладки */
+  int x = *snakeArray;
+  int y = *(snakeArray+1);
+  if (x == appleX && y == appleY) {
+    *appleEaten = 1;
+    *snakeLength += 1;
+    int snakeLen = *snakeLength;
+    int lastX = *(snakeArray + snakeLen*2-2);
+    int lastY = *(snakeArray + snakeLen*2-2+1);
+    *(snakeArray + snakeLen*2) = lastX;
+    *(snakeArray + snakeLen*2+1) = lastY;
+  }
+
+  mvprintw(0,0,"snakeLength: %d", *snakeLength);
+}
+
 int main() {
 
   int snakeArray[100][2];
