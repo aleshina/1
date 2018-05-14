@@ -7,6 +7,25 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+int kbhit (void) {
+  /* проверить, нажат ли ключ или нет*/
+  struct timeval tv;
+  fd_set read_fd;
+
+  tv.tv_sec=0;
+  tv.tv_usec=0;
+  FD_ZERO(&read_fd);
+  FD_SET(0,&read_fd);
+
+  if(select(1, &read_fd, NULL, NULL, &tv) == -1)
+    return 0;
+
+  if(FD_ISSET(0,&read_fd))
+    return 1;
+
+  return 0;
+}
+
 int colliding(int *snakeArray) {
   /* проверяет сталкивается ли змея со стенами */
   int x = *snakeArray;
