@@ -52,6 +52,7 @@ void moveSnake(int *snakeArray, int dirX, int dirY, int speed, int snakeLength) 
   *(snakeArray) = newX;
   *(snakeArray+1) = newY;
   mvprintw(newY, newX, "S");
+
 for (size_t i = 2; i < snakeLength*2; i += 2)
  {
     oldX = curX;
@@ -101,7 +102,7 @@ void eatApple(int *snakeArray, int appleX, int appleY,
     *(snakeArray + snakeLen*2+1) = lastY;
   }
 
-  mvprintw(0,0,"snakeLength: %d", *snakeLength);
+  mvprintw(0,0,"Snake_Length: %d", *snakeLength);
 }
 
 int main() {
@@ -128,9 +129,8 @@ int main() {
     letThereBeApple(&appleX, &appleY, &appleEaten);
     moveSnake(&snakeArray[0][0], dirX, dirY, speed, snakeLength);
     eatApple(&snakeArray[0][0], appleX, appleY, &appleEaten, &snakeLength);
-
-
     refresh();
+
 /* изменить направление с помощью wasd */
     if (kbhit()) {
       keyPressed = getch();
@@ -153,12 +153,12 @@ int main() {
       }
     }
  }
+
   erase();
   mvprintw(MAXHEIGHT/2,MAXWIDTH/4,"Game Over! - Your score was: %d", snakeLength);
   refresh();
 	getch();			/* Подождите, пока пользователь введёт */
 	endwin();			/* конец режима ncurses		  */
-
 	return 0;
-}
+}	
 
