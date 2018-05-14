@@ -152,5 +152,13 @@ int main() {
         dirY = 0;
       }
     }
+ }
+  erase();
+  mvprintw(MAXHEIGHT/2,MAXWIDTH/4,"Game Over! - Your score was: %d", snakeLength);
+  refresh();
+	getch();			/* Подождите, пока пользователь введёт */
+	endwin();			/* конец режима ncurses		  */
 
+	return 0;
+}
 
