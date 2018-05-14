@@ -7,6 +7,26 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+for (size_t i = 2; i < snakeLength*2; i += 2)
+ {
+    oldX = curX;
+    oldY = curY;
+    curX = *(snakeArray+i);
+    curY = *(snakeArray+i+1);
+    newX = oldX;
+    newY = oldY;
+    *(snakeArray+i) = newX;
+    *(snakeArray+i+1) = newY;
+    mvprintw(newY, newX, "S");
+  }
+
+  if (dirY != 0) {
+    usleep(1000000/speed);
+  }
+
+  usleep(1000000/speed);
+}
+
 void letThereBeApple(int* appleX, int* appleY, int *appleEaten) {
   /* новое случайное расположение яблока, если яблоко съедено, а если нет, то печатает яблоко в
      предыдущее местоположение */
