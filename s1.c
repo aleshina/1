@@ -24,3 +24,14 @@ int main() {
   initscr();			/* начало режима ncurses */
   curs_set(false);
   noecho();
+/* основной круг  */
+  while (!colliding(&snakeArray[0][0])) {
+    erase();
+
+    letThereBeApple(&appleX, &appleY, &appleEaten);
+    moveSnake(&snakeArray[0][0], dirX, dirY, speed, snakeLength);
+    eatApple(&snakeArray[0][0], appleX, appleY, &appleEaten, &snakeLength);
+
+
+    refresh();
+
