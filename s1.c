@@ -7,6 +7,19 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+void moveSnake(int *snakeArray, int dirX, int dirY, int speed, int snakeLength) {
+  /*перемещает змею на одно положение в указанное направление, также контролирует скорость
+     игры с использованием функции usleep*/
+  int oldX = 0;
+  int oldY = 0;
+  int curX = *snakeArray;
+  int curY = *(snakeArray+1);
+  int newX = curX + dirX;
+  int newY = curY + dirY;
+
+  *(snakeArray) = newX;
+  *(snakeArray+1) = newY;
+  mvprintw(newY, newX, "S");
 for (size_t i = 2; i < snakeLength*2; i += 2)
  {
     oldX = curX;
