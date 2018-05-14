@@ -7,6 +7,19 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
+int colliding(int *snakeArray) {
+  /* проверяет сталкивается ли змея со стенами */
+  int x = *snakeArray;
+  int y = *(snakeArray+1);
+  if (x < 0 || x > MAXWIDTH) {
+    return 1;
+  }
+  else if (y < 0 || y > MAXHEIGHT) {
+    return 1;
+  }
+  return 0;
+}
+
 void moveSnake(int *snakeArray, int dirX, int dirY, int speed, int snakeLength) {
   /*перемещает змею на одно положение в указанное направление, также контролирует скорость
      игры с использованием функции usleep*/
