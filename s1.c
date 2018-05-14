@@ -34,4 +34,26 @@ int main() {
 
 
     refresh();
+/* изменить направление с помощью wasd */
+    if (kbhit()) {
+      keyPressed = getch();
+
+      if (keyPressed == 'w') {
+        dirY = -1;
+        dirX = 0;
+      }
+      if (keyPressed == 's') {
+        dirY = 1;
+        dirX = 0;
+      }
+      if (keyPressed == 'a') {
+        dirX = -1;
+        dirY = 0;
+      }
+      if (keyPressed == 'd') {
+        dirX = 1;
+        dirY = 0;
+      }
+    }
+
 
