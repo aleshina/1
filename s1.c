@@ -7,7 +7,9 @@
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
 
-  /*Если змея находит яблоко, получите одно очко, также установите appleEaten в true и
+void eatApple(int *snakeArray, int appleX, int appleY,
+              int *appleEaten, int *snakeLength) {  
+/*Если змея находит яблоко, получите одно очко, также установите appleEaten в true и
 печатает данные snakeLength и отладки */
   int x = *snakeArray;
   int y = *(snakeArray+1);
