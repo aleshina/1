@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAXWIDTH 79
-#define MAXHEIGHT 23
+#define MAXWIDTH 80
+#define MAXHEIGHT 25
 
 int kbhit (void) {
   /* проверить, нажат ли ключ или нет*/
