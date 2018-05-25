@@ -3,6 +3,7 @@
 #include <sys/select.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale>
 
 #define MAXWIDTH 79
 #define MAXHEIGHT 23
@@ -106,7 +107,7 @@ void eatApple(int *snakeArray, int appleX, int appleY,
 }
 
 int main() {
-
+setlocale(LC_ALL, "russian_russia.1251");
   int snakeArray[100][2];
   snakeArray[0][0] = 3;
   snakeArray[0][1] = 3;
@@ -155,7 +156,7 @@ int main() {
  }
 
   erase();
-  mvprintw(MAXHEIGHT/2,MAXWIDTH/4,"Game Over! - Your score was: %d", snakeLength);
+  mvprintw(MAXHEIGHT/2,MAXWIDTH/4,"Игра окончена! Ваш счет:  : %d", snakeLength);
   refresh();
 	getch();			/* Подождите, пока пользователь введёт */
 	endwin();			/* конец режима ncurses		  */
